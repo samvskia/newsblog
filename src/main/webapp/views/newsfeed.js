@@ -1,11 +1,18 @@
-$(function () {
-    $.ajax({
-        url: "templates/newsfeed.html",
-        dataType: "html",
-        success: function (data) {
-            $("#content").html(data);
-        }
+define(["jquery", "underscore", "component/component", "text!template/newsfeed.html"],
+    function ($, _, component, template) {
+
+        let contentView = component.extend({
+
+            componentID: "newsfeed",
+            template: _.template(template),
+            init: function () {
+
+            },
+            render: function () {
+                component.prototype.render.call(this);
+            }
+
+
+        });
+        return contentView;
     });
-
-
-});

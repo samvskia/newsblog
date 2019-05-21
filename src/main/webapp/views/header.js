@@ -1,33 +1,18 @@
-$(function () {
-    $.ajax({
-        url: "templates/header.html",
-        dataType: "html",
-        success: function (data) {
-            $("#header").html(data);
-        }
-    });
+define(["jquery", "underscore", "component/component", "text!template/header.html"],
+    function ($, _, component, template) {
 
-    //--- Events -------------------------------
-    $("#buttonHome, #buttonSport").click(function () {
-        alert("he");
-        $.ajax({
-            type: "GET",
-            url: "templates/newsfeed.html",
-            dataType: "html",
-            success: function (data) {
-                $("#content").html(data);
-            }
-        });
-    });
+        let headerView = component.extend({
 
-    $(".newsbox").click(function () {
-        $.ajax({
-            type: "GET",
-            url: "templates/article.html",
-            dataType: "html",
-            success: function (data) {
-                $("#content").html(data);
+            componentID: "header",
+            template: _.template(template),
+            init: function () {
+
+            },
+            render: function () {
+                component.prototype.render.call(this);
             }
+
+
         });
+        return headerView;
     });
-});
