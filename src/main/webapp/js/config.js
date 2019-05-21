@@ -4,11 +4,13 @@ require.config({
     paths: {
         //Libraries
         jquery: "libraries/jquery-3.3.1.min",
+        underscore: "libraries/underscore-min",
+        text: "libraries/text",
         bootstrap: "libraries/bootstrap/bootstrap.min",
 
         //Directories
-        views: "../views",
-        templates: "../templates"
+        view: "../views",
+        template: "../templates"
     }
 
 });
