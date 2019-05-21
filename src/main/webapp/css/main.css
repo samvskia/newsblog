@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #F0F1F5;
+}
+
+.navigation_panel {
+  width: 100%;
+}
+
+.header_title {
+  padding-left: 2%;
+}
+.header_title :hover {
+  text-decoration-line: none;
+}
+.header_title .ht_first_part {
+  float: left;
+  color: red;
+}
+.header_title .ht_second_part {
+  float: left;
+  margin-top: 8%;
+  color: blue;
+}
+@media (max-width: 768px) {
+  .header_title .ht_second_part {
+    margin-top: 1%;
+  }
+}
+@media (min-width: 768px) {
+  .header_title .ht_second_part {
+    margin-top: 2%;
+  }
+}
+@media (max-width: 768px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 0 0 45%;
+  }
+}
+@media (max-width: 550px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 0 0 40%;
+  }
+}
+@media (min-width: 768px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 60px 0 0 10px;
+  }
+}
+@media (min-width: 1045px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 50px 0 0 0;
+  }
+}
+@media (min-width: 1200px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+  }
+}
+@media (min-width: 1345px) {
+  .header_title {
+    font-family: SansSerif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.header_navigation {
+  width: 60%;
+}
+
+.nav_button {
+  border: none;
+  border-radius: 0;
+  color: #000;
+  font-weight: 600;
+  background-color: #F0F1F5;
+  width: 100%;
+}
+
+.header_sign_in_block {
+  float: right;
+}
+@media (max-width: 768px) {
+  .header_sign_in_block {
+    margin: 0 35% 0 0;
+  }
+}
+@media (max-width: 550px) {
+  .header_sign_in_block {
+    margin: 0 30% 0 0;
+  }
+}
+
+.header_sign_in_link {
+  float: right;
+  margin: 20px 5px 20px 5px;
+}
+
+#content {
+  min-height: 1000px;
+}
+
+.newsfeed {
+  width: 100%;
+}
+
+.newsbox {
+  position: relative;
+  margin: 5%;
+}
+.newsbox :hover {
+  cursor: pointer;
+}
+.newsbox img {
+  width: 100%;
+}
+
+.dark_folie {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-image: linear-gradient(grey, black);
+  opacity: 0.9;
+}
+.dark_folie p {
+  float: left;
+  color: white;
+  margin: 10px;
+  font: normal 600 26px SansSerif;
+}
+.dark_folie span {
+  float: left;
+  margin: 0 10px 10px 10px;
+  font: normal 600 15px Segoe UI;
+  color: lightgrey;
+}
+
+#footer {
+  background: #F0F1F5;
+}
+
+.footer_text {
+  padding: 30px;
+  text-align: center;
+}
+
+.news {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+@media (min-width: 768px) {
+  .news {
+    max-width: 700px;
+  }
+}
+@media (min-width: 1200px) {
+  .news {
+    max-width: 1000px;
+  }
+}
+
+.news_title {
+  font-family: SansSerif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+}
+
+.news_author {
+  font-family: SansSerif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-family: Segoe UI;
+  text-align: center;
+  margin: 0;
+}
+
+.news_date {
+  font-family: SansSerif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-family: Segoe UI;
+  text-align: center;
+  margin: 0;
+}
+
+.news_type {
+  font-family: SansSerif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-family: Segoe UI;
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+.news_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .news_image {
+    width: 70%;
+  }
+}
+@media (min-width: 768px) {
+  .news_image {
+    width: 90%;
+  }
+}
+@media (min-width: 1200px) {
+  .news_image {
+    width: auto;
+  }
+}
+
+.news_text {
+  font-family: SansSerif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/*# sourceMappingURL=main.css.map */
