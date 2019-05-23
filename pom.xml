@@ -43,9 +43,7 @@
                             <source>
                                 <directory>${project.basedir}/src/main/resources/sass</directory>
                             </source>
-                            <!--Css destination-->
-                            <destination>${project.basedir}/src/main/webapp/css</destination>
-                            <!--<destination>${project.basedir}/target/${project.build.finalName}/css</destination>-->
+                            <destination>${project.basedir}/target/${project.build.finalName}/css</destination>
                         </resource>
                     </resources>
                 </configuration>

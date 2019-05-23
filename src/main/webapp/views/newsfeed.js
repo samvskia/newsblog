@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "component/component", "text!template/newsfeed.html"],
-    function ($, _, component, template) {
+define(["jquery", "underscore", "component/component", "model/modelNews", "text!template/newsfeed.html"],
+    function ($, _, component, modelNews, template) {
 
         let contentView = component.extend({
 
@@ -9,10 +9,27 @@ define(["jquery", "underscore", "component/component", "text!template/newsfeed.h
 
             },
             render: function () {
-                component.prototype.render.call(this);
+                let view = this;
+                component.prototype.render.call(view);
+
+                $.ajax({
+                    type: "GET",
+                    url: "data/news.json",
+                    dataType: "json",
+                    success: function (json) {
+                        for (let i = 0; i < json.length; i++) {
+                            let news = modelNews;
+                            news.title = json[i].title;
+                            news.type = json[i].type;
+                            news.img = json[i].img;
+                            news.link = json[i].link;
+
+                            view.$('#newsfeed').append(news.getNewsFeedLook());
+                        }
+                    }
+                });
+
             }
-
-
         });
         return contentView;
     });

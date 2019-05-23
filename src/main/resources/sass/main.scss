@@ -1,237 +1,238 @@
-$default-font : SansSerif;
-$font-1 : Segoe UI;
-$header-background-color: #F0F1F5;
-$content-background-color: #F6F7FB;
+/*--- Fonts ---*/
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 
-$xl : 1345px;
-$lg : 1200px;
-$md : 1045px;
-$sm : 768px;
-$xxs: 550px;
+/*--- Variables and Mixins ---*/
+$background-color-1: ghostwhite;
+$defaultFont: 'Playfair Display', serif;
+$cursiveFont: 'Kalam', cursive;
+$easyFont: 'Nunito Sans', sans-serif;
+/*----------------------------*/
 
-@mixin font-options($size, $style, $weight){
-  font-family: $default-font;
-  font-size: $size;
-  font-style: $style;
-  font-weight: $weight;
-}
-
-
-body{
-  margin: 0;
-  padding: 0;
-}
-
-#header{
-  background-color: $header-background-color;
-}
-
-.navigation_panel{
-  width: 100%;
-}
-
-.header_title {
-  padding-left: 2%;
-
-  :hover{
-    text-decoration-line: none;
-  }
-
-  .ht_first_part{
-    float: left;
-    color: red;
-  }
-
-  .ht_second_part{
-    float: left;
-    margin-top: 8%;
-    color: blue;
-
-    @media (max-width: $sm){
-      margin-top: 1%;
-    }
-
-    @media (min-width: $sm){
-      margin-top: 2%;
-    }
-  }
-
-  @media (max-width: $sm) {
-    @include  font-options(20px, normal, bold);
-    margin: 0 0 0 45%;
-  }
-
-  @media (max-width: $xxs) {
-    @include  font-options(20px, normal, bold);
-    margin: 0 0 0 40%;
-  }
-
-  @media (min-width: $sm) {
-    @include  font-options(25px, normal, bold);
-    margin: 60px 0 0 10px;
-  }
-
-  @media (min-width: $md) {
-    @include  font-options(30px, normal, bold);
-    margin: 50px 0 0 0;
-  }
-
-  @media (min-width: $lg) {
-    @include  font-options(35px, normal, bold);
-    margin: 10px 0 0 0;
-  }
-
-  @media (min-width: $xl) {
-    @include  font-options(40px, normal, bold);
+body {
     margin: 0;
-  }
+    min-width: 1200px;
+    font-family: $defaultFont;
 }
 
-.header_navigation{
-  width: 60%;
+/*--- Header ---*/
+#header {
+    &{
+        float: left;
+        width: 100%;
+        background-color: $background-color-1;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    .header{
+        float: left;
+        width: 100%;
+        clear: both;
+    }
+
+    .title{
+        float: left;
+        width: 20%;
+        height: 50px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .first-part{
+        float: left;
+        margin: 4px 0 12px 50px;
+        color: orangered;
+        text-decoration: none;
+    }
+
+    .second-part{
+        float: left;
+        margin: 10px 0 6px 0;
+        color: blue;
+        text-decoration: none;
+    }
+
+    .navigation{
+        float: left;
+        width: 60%;
+        height: 50px;
+    }
+
+    .navigation a{
+        &{
+            float: left;
+            padding: 14px 20px 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: blue;
+        }
+
+        &:hover{
+            color: white;
+            background: linear-gradient(135deg, blue 1%, #1888e6 100%);
+        }
+    }
+
+    .sign-in-block{
+        float: left;
+        width: 20%;
+    }
+
+    .sign-in-block a{
+        &{
+            float: right;
+            padding: 14px 20px 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: red;
+        }
+
+        &:hover{
+            color: white;
+            background: linear-gradient(135deg, red 1%, #ff6500 100%);
+        }
+    }
+
 }
 
-.nav_button{
-  border: none;
-  border-radius: 0;
-  color: #000;
-  font-weight: 600;
-  background-color: $header-background-color;
-  width: 100%;
-}
 
-.header_sign_in_block{
-  float: right;
-
-  @media (max-width: $sm) {
-    margin: 0 35% 0 0;
-  }
-
-  @media (max-width: $xxs) {
-    margin: 0 30% 0 0;
-  }
-}
-
-.header_sign_in_link{
-  float: right;
-  margin: 20px 5px 20px 5px;
-}
-
+/*--- Content ---*/
 #content{
-  min-height: 1000px;
+    &{
+        float: left;
+        width: 100%;
+        min-height: 900px;
+    }
+
+
+    /*--- Newsfeed ---*/
+    #newsfeed{
+        &{
+            margin: 0 auto;
+            width: 1760px;
+            background: red;
+        }
+
+        .newsbox{
+            &{
+                float: left;
+                margin: 20px;
+                width: 400px;
+                height: 300px;
+            }
+
+            &:first-child{
+                width: 840px;
+                height: 640px;
+            }
+
+            a {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+
+            .dark-folie{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                min-height: 50px;
+                background-color: black;
+                opacity: 0.8;
+            }
+
+            &:first-child .dark-folie{
+                min-height: 100px;
+            }
+
+            .dark-folie .title {
+                margin: 10px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            &:first-child .dark-folie .title{
+                margin: 20px;
+                font-size: 40px;
+            }
+
+            .dark-folie .type{
+                margin: 1px;
+                text-align: center;
+                color: orange;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            &:first-child .dark-folie .type{
+                margin: 2px;
+                font-size: 28px;
+            }
+
+        }
+    }
+
+
+    /*--- Article ---*/
+    #article{
+
+        &{
+            margin: 20px auto;
+            padding: 20px;
+            width: 40%;
+            background-color: $background-color-1;
+            border: 1px solid #ebebeb;
+        }
+
+        .title{
+            margin: 0 10px 30px 10px;
+            font: bold 30px $easyFont;
+            text-align: center;
+        }
+
+        .author, .date, .type{
+            color: orangered;
+            font: bold 16px $cursiveFont;
+            margin: 3px;
+            text-align: center;
+        }
+
+        .image{
+            margin: 30px auto;
+            width: 100%;
+            display: block;
+        }
+
+        .text{
+            text-align: justify;
+            font: normal 18px $easyFont;
+        }
+    }
+
+
+
+
 }
 
-.newsfeed{
-  width: 100%;
-}
-
-.newsbox{
-  position: relative;
-  margin: 5%;
-
-  :hover{
-    cursor: pointer;
-  }
-
-  img{
-    width: 100%;
-  }
-}
-
-.dark_folie{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-image: linear-gradient(grey, black);
-  opacity: 0.9;
-
-  p{
-    float: left;
-    color: white;
-    margin: 10px;
-    font: normal 600 26px $default-font;
-  }
-
-  span{
-    float: left;
-    margin: 0 10px 10px 10px;
-    font: normal 600 15px $font-1;
-    color: lightgrey;
-  }
-}
-
+/*--- Footer ---*/
 #footer{
-  background: $header-background-color;
-}
+    &{
+        float: left;
+        margin-top: 20px;
+        width: 100%;
+        background-color: $background-color-1;
+        border-top: 1px solid #ebebeb;
+    }
 
-.footer_text{
-  padding: 30px;
-  text-align: center;
-}
-
-.news{
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
-
-  @media (min-width: $sm) {
-    max-width: 700px;
-  }
-
-  @media (min-width: $lg) {
-    max-width: 1000px;
-  }
-}
-
-.news_title{
-  @include font-options( 40px, normal, bold);
-  text-align: center;
-}
-
-.news_author{
-  @include font-options( 20px, normal, normal);
-  font-family: $font-1;
-  text-align: center;
-  margin: 0;
-}
-
-.news_date{
-  @include font-options( 20px, normal, normal);
-  font-family: $font-1;
-  text-align: center;
-  margin: 0;
-}
-
-.news_type{
-  @include font-options( 20px, normal, normal);
-  font-family: $font-1;
-  text-align: center;
-  text-decoration-line: underline;
-}
-
-.news_image{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: $sm) {
-    width: 70%;
-  }
-
-  @media (min-width: $sm) {
-    width: 90%;
-  }
-
-  @media (min-width: $lg) {
-    width: auto;
-  }
-}
-
-.news_text{
-  @include font-options( 20px, normal, normal);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: justify;
+    .copyright{
+        text-align: center;
+        margin: 20px;
+    }
 }
