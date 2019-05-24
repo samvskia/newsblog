@@ -1,12 +1,14 @@
 define(["jquery",
         "underscore",
         "component/component",
+        "component/functions",
         "view/header",
         "view/newsfeed",
         "view/article",
         "view/footer",
         "text!template/root.html"],
     function ($, _, component,
+              functions,
               HeaderView,
               NewsFeedView,
               ArticleView,
@@ -16,11 +18,28 @@ define(["jquery",
         let rootView = component.extend({
 
             componentID: "root",
+
             el: "body",
+
             template: _.template(template),
+
+            events: {
+                "click #headerLogo1p": "showNewsfeed",
+                "click #headerLogo2p": "showNewsfeed",
+                "click #headerHome": "showNewsfeed",
+                "click #headerSport": "showNewsfeed",
+                "click #headerWeather": "showNewsfeed",
+                "click #headerPolitic": "showNewsfeed",
+                "click #headerCulture": "showNewsfeed",
+                "click #headerOther": "showNewsfeed",
+                "click #headerRegister": "showRegisterPage",
+                "click #headerLogin": "showLoginPage",
+            },
+
             init: function () {
 
             },
+
             render: function () {
                 component.prototype.render.call(this);
 
@@ -33,7 +52,7 @@ define(["jquery",
 
                 //--- Content ---//
                 let contentView = undefined;
-                if (false) {
+                if (functions.getUrlVariables()["page"] === "article") {
                     contentView = new ArticleView();
                 } else {
                     contentView = new NewsFeedView();
@@ -46,8 +65,19 @@ define(["jquery",
                 let footerView = new FooterView();
                 this.addSubView(footerView, "#footer");
                 footerView.render();
-            }
+            },
 
+            showNewsfeed: function (){
+                console.log("a");
+            },
+
+            showRegisterPage: function () {
+                console.log("b");
+            },
+
+            showLoginPage: function () {
+                console.log("c");
+            }
 
         });
         return rootView;

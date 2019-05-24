@@ -23,6 +23,8 @@ define(["jquery", "underscore", "component/component", "model/modelNews", "text!
                             news.type = json[i].type;
                             news.img = json[i].img;
                             news.link = json[i].link;
+                            news.date = json[i].date;
+                            news.author = json[i].author;
 
                             view.$('#newsfeed').append(news.getNewsFeedLook());
                         }

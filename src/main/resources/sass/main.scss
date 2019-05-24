@@ -45,6 +45,7 @@ body {
         margin: 4px 0 12px 0;
         color: orangered;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .second-part{
@@ -52,6 +53,7 @@ body {
         margin: 10px 0 6px 0;
         color: blue;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .navigation{
@@ -68,6 +70,7 @@ body {
             font-weight: bold;
             text-decoration: none;
             color: blue;
+            cursor: pointer;
         }
 
         &:hover{
@@ -89,6 +92,7 @@ body {
             font-weight: bold;
             text-decoration: none;
             color: red;
+            cursor: pointer;
         }
 
         &:hover{
@@ -213,6 +217,10 @@ body {
             font: bold 16px $cursiveFont;
             margin: 3px;
             text-align: center;
+        }
+
+        .type{
+            text-transform: capitalize;
         }
 
         .image{

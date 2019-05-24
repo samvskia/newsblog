@@ -11,6 +11,12 @@ define(["jquery"], function ($) {
         content: undefined,
 
         getNewsFeedLook: function () {
+            this.link = "?page=article" +
+                "&type=" + this.type +
+                "&date=" + this.date +
+                "&author=" + this.author +
+                "&title=" + this.title;
+
             let html = "" +
                 "<div class='newsbox' style='background-image: url(" + this.img + ")'>" +
                 "   <a href='" + this.link + "'>" +
@@ -29,7 +35,7 @@ define(["jquery"], function ($) {
             let html = "" +
                 "<div class='articlePageLook'>" +
                 "   <p class='title'>" + this.title + "</p>" +
-                "   <p class='author'>" + this.author + "</p>" +
+                "   <p class='author'>By " + this.author + "</p>" +
                 "   <p class='date'>" + this.date + "</p>" +
                 "   <p class='type'>" + this.type + "</p>" +
                 "   <img class='image' src='" + this.img + "'>" +

@@ -1,38 +1,50 @@
 [
   {
     "title": "What if California seceded from the US?",
-    "type": "Politic",
+    "type": "politic",
     "img": "images/2.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   },
   {
     "title": "About smart phones",
-    "type": "Other",
+    "type": "other",
     "img": "images/1.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   },
   {
     "title": "Art presentation",
-    "type": "Culture",
+    "type": "culture",
     "img": "images/2.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   },
   {
     "title": "Some news",
-    "type": "Other",
+    "type": "other",
     "img": "images/2.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   },
   {
     "title": "Real Madrid vs Barcelona",
-    "type": "Sport",
+    "type": "sport",
     "img": "images/1.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   },
   {
     "title": "Chess Championship",
-    "type": "Sport",
+    "type": "sport",
     "img": "images/3.jpg",
-    "link": "https://www.google.com/"
+    "link": "?page=article",
+    "date": "07.04.2018",
+    "author": "John Smith"
   }
 ]
