@@ -27,7 +27,8 @@ body {
 
     .header{
         float: left;
-        width: 100%;
+        padding: 0 5% 0 5%;
+        width: 90%;
         clear: both;
     }
 
@@ -41,7 +42,7 @@ body {
 
     .first-part{
         float: left;
-        margin: 4px 0 12px 50px;
+        margin: 4px 0 12px 0;
         color: orangered;
         text-decoration: none;
     }
@@ -112,8 +113,18 @@ body {
     #newsfeed{
         &{
             margin: 0 auto;
-            width: 1760px;
-            background: red;
+
+            @media (min-width: 900px) {
+                width: 880px;
+            }
+
+            @media(min-width: 1400px){
+                width: 1320px;
+            }
+
+            @media (min-width: 1840px) {
+                width: 1760px;
+            }
         }
 
         .newsbox{
@@ -186,7 +197,7 @@ body {
         &{
             margin: 20px auto;
             padding: 20px;
-            width: 40%;
+            width: 880px;
             background-color: $background-color-1;
             border: 1px solid #ebebeb;
         }
