@@ -4,6 +4,7 @@ define(["jquery", "underscore", "component/component", "text!template/footer.htm
         let footerView = component.extend({
 
             componentID: "footer",
+            el: "#footer",
             template: _.template(template),
             init: function () {
 

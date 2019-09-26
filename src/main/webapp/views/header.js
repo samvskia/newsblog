@@ -4,6 +4,7 @@ define(["jquery", "underscore", "component/component", "text!template/header.htm
         let headerView = component.extend({
 
             componentID: "header",
+            el: "#header",
             template: _.template(template),
             init: function () {
 

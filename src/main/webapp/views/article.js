@@ -4,10 +4,13 @@ define(["jquery", "underscore", "component/component", "model/modelNews", "text!
         let contentView = component.extend({
 
             componentID: "article",
-            template: _.template(template),
-            init: function () {
 
-            },
+            el: "#content",
+
+            template: _.template(template),
+
+            init: function () {},
+
             render: function () {
                 let view = this;
                 component.prototype.render.call(view);
