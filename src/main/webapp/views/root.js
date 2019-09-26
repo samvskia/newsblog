@@ -4,6 +4,7 @@ define(["jquery",
         "component/functions",
         "view/header",
         "view/newsfeed",
+        "view/newsarea",
         "view/article",
         "view/footer",
         "text!template/root.html"],
@@ -11,6 +12,7 @@ define(["jquery",
               functions,
               HeaderView,
               NewsFeedView,
+              NewsAreaView,
               ArticleView,
               FooterView,
               template) {
@@ -54,6 +56,8 @@ define(["jquery",
                 let contentView = undefined;
                 if (functions.getUrlVariables()["page"] === "article") {
                     contentView = new ArticleView();
+                } else if (functions.getUrlVariables()["page"] === "newsarea") {
+                    contentView = new NewsAreaView();
                 } else {
                     contentView = new NewsFeedView();
                 }

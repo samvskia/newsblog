@@ -2,6 +2,7 @@ define(["jquery"], function ($) {
 
     let objectNews = {
 
+        id: undefined,
         title: undefined,
         author: undefined,
         date: undefined,
@@ -13,9 +14,7 @@ define(["jquery"], function ($) {
         getNewsFeedLook: function () {
             this.link = "?page=article" +
                 "&type=" + this.type +
-                "&date=" + this.date +
-                "&author=" + this.author +
-                "&title=" + this.title;
+                "&id=" + this.id;
 
             let html = "" +
                 "<div class='newsbox' style='background-image: url(" + this.img + ")'>" +

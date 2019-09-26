@@ -195,6 +195,12 @@ body {
     }
 
 
+    /*--- Newsarea ---*/
+    #newsarea {
+        @extend #newsfeed;
+    }
+
+
     /*--- Article ---*/
     #article{
 

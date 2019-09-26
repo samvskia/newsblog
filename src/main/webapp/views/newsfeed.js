@@ -17,11 +17,12 @@ define(["jquery", "underscore", "component/component", "model/modelNews", "text!
 
                 $.ajax({
                     type: "GET",
-                    url: "data/news.json",
+                    url: "/newsblog/rest/json/getArticleList",
                     dataType: "json",
                     success: function (json) {
                         for (let i = 0; i < json.length; i++) {
                             let news = modelNews;
+                            news.id = json[i].id;
                             news.title = json[i].title;
                             news.type = json[i].type;
                             news.img = json[i].img;
