@@ -17,8 +17,9 @@ define(["jquery"], function ($) {
                 "&id=" + this.id;
 
             let html = "" +
-                "<div class='newsbox' style='background-image: url(" + this.img + ")'>" +
+                "<div class='newsbox'>" +
                 "   <a href='" + this.link + "'>" +
+                "       <img class='newsbox-image' src='" + this.img + "'>" +
                 "       <div class='dark-folie'>" +
                 "           <p class='title'>" + this.title + "</p>" +
                 "           <p class='type'>" + this.type + "</p>" +
