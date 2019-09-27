@@ -12,19 +12,15 @@ define(["jquery"], function ($) {
         content: undefined,
 
         getNewsFeedLook: function () {
-            this.link = "?page=article" +
-                "&type=" + this.type +
-                "&id=" + this.id;
-
             let html = "" +
                 "<div class='newsbox'>" +
-                "   <a href='" + this.link + "'>" +
+                "   <div class='newsLink' article-id='" + this.id + "'>" +
                 "       <img class='newsbox-image' src='" + this.img + "'>" +
                 "       <div class='dark-folie'>" +
                 "           <p class='title'>" + this.title + "</p>" +
                 "           <p class='type'>" + this.type + "</p>" +
                 "       </div>" +
-                "   </a>" +
+                "   </div>" +
                 "</div>";
 
             return html;

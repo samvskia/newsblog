@@ -40,6 +40,7 @@ define(["jquery",
                 "click #headerOther": "showOtherNews",
                 "click #headerSignUp": "showSignUpPage",
                 "click #headerLogin": "showLoginPage",
+                "click .newsLink": "showArticlePage"
             },
 
             init: function () {
@@ -74,14 +75,6 @@ define(["jquery",
                 contentView.render(argument);
             },
 
-            showSignUpPage: function () {
-                this.changeContent(new SignUpView());
-            },
-
-            showLoginPage: function () {
-                this.changeContent(new LoginView());
-            },
-
             showNewsfeed: function () {
                 this.changeContent(new NewsFeedView());
             },
@@ -104,6 +97,19 @@ define(["jquery",
 
             showOtherNews: function () {
                 this.changeContent(new NewsAreaView(), "other");
+            },
+
+            showSignUpPage: function () {
+                this.changeContent(new SignUpView());
+            },
+
+            showLoginPage: function () {
+                this.changeContent(new LoginView());
+            },
+
+            //TODO get Article id from event element
+            showArticlePage: function () {
+                this.changeContent(new ArticleView(), "4");
             }
 
         });
