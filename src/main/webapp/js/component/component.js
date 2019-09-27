@@ -13,7 +13,7 @@ define(["jquery", "model/componentCollection"],
             this.$el.addClass(this.componentID);
             this.$ = this.$el.find.bind(this.$el);
 
-
+            this.delegateEvents();
 
             this.init.apply(this, arguments);
             delete this.init;
@@ -21,6 +21,52 @@ define(["jquery", "model/componentCollection"],
         };
 
         Component.prototype.init = function () {};
+
+        Component.prototype.events = {};
+
+        Component.prototype.globalEvents = {};
+
+        Component.prototype.delegateEvents = function () {
+            if (typeof this.events == "function") this.events = this.events();
+            if (!Array.isArray(this.events)) {
+                // transform events into an array of [type,selector,boundFunction]
+                let events = [];
+
+                for (let key in this.events) {
+                    let split = key.split(/\s+/);
+                    let type = split[0];
+                    let selector = split.slice(1).join(" ");
+
+                    let func = null;
+                    let listeners = this.events[key];
+                    if (!Array.isArray(listeners)) listeners = [listeners];
+                    // this is not working in IE 11
+                    //TODO replace with for...of on IE support
+                    for (let i = 0; i < listeners.length; i++) {
+                        let listener = listeners[i];
+                        if (typeof listener == "function") {
+                            func = listener.bind(this);
+                        } else if (listener in this) {
+                            func = this[listener].bind(this);
+                        } else {
+                            throw new SyntaxError("no method " + listener + " in component " + this.componentID);
+                        }
+                        events.push({
+                            type: type,
+                            selector: selector,
+                            fn: func
+                        });
+                    }
+                }
+                this.events = events;
+            }
+            //delegate events
+            for (let i = 0; i < this.events.length; i++) {
+                let event = this.events[i];
+                this.$el.on(event.type, event.selector, event.fn);
+            }
+
+        };
 
         Component.prototype.render = function (renderParam) {
             let htmlContent = this.template({

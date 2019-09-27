@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "component/component", "component/functions", "model/modelNews", "text!template/newsarea.html"],
-    function ($, _, component, functions, modelNews, template) {
+define(["jquery", "underscore", "component/component", "model/modelNews", "text!template/newsarea.html"],
+    function ($, _, component, modelNews, template) {
 
-        let contentView = component.extend({
+        let newsAreaView = component.extend({
 
             componentID: "newsarea",
 
@@ -11,15 +11,14 @@ define(["jquery", "underscore", "component/component", "component/functions", "m
 
             init: function () {},
 
-            render: function () {
+            render: function (argument) {
                 let view = this;
                 component.prototype.render.call(view);
-                let urlParams = functions.getUrlVariables();
 
                 $.ajax({
                     type: "POST",
                     url: "/newsblog/rest/json/getArticleListByType",
-                    data: urlParams["type"],
+                    data: argument,
                     contentType: "text/plain; charset=utf-8",
                     cache: false,
                     dataType: "json",
@@ -42,5 +41,5 @@ define(["jquery", "underscore", "component/component", "component/functions", "m
             }
 
         });
-        return contentView;
+        return newsAreaView;
     });

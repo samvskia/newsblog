@@ -3,6 +3,8 @@ define(["jquery",
         "component/component",
         "component/functions",
         "view/header",
+        "view/signUp",
+        "view/login",
         "view/newsfeed",
         "view/newsarea",
         "view/article",
@@ -11,6 +13,8 @@ define(["jquery",
     function ($, _, component,
               functions,
               HeaderView,
+              SignUpView,
+              LoginView,
               NewsFeedView,
               NewsAreaView,
               ArticleView,
@@ -29,12 +33,12 @@ define(["jquery",
                 "click #headerLogo1p": "showNewsfeed",
                 "click #headerLogo2p": "showNewsfeed",
                 "click #headerHome": "showNewsfeed",
-                "click #headerSport": "showNewsfeed",
-                "click #headerWeather": "showNewsfeed",
-                "click #headerPolitic": "showNewsfeed",
-                "click #headerCulture": "showNewsfeed",
-                "click #headerOther": "showNewsfeed",
-                "click #headerRegister": "showRegisterPage",
+                "click #headerSport": "showSportNews",
+                "click #headerWeather": "showWeatherNews",
+                "click #headerPolitic": "showPoliticNews",
+                "click #headerCulture": "showCultureNews",
+                "click #headerOther": "showOtherNews",
+                "click #headerSignUp": "showSignUpPage",
                 "click #headerLogin": "showLoginPage",
             },
 
@@ -53,14 +57,7 @@ define(["jquery",
 
 
                 //--- Content ---//
-                let contentView = undefined;
-                if (functions.getUrlVariables()["page"] === "article") {
-                    contentView = new ArticleView();
-                } else if (functions.getUrlVariables()["page"] === "newsarea") {
-                    contentView = new NewsAreaView();
-                } else {
-                    contentView = new NewsFeedView();
-                }
+                let contentView = new NewsFeedView();
                 this.addSubView(contentView, "#content");
                 contentView.render();
 
@@ -71,16 +68,42 @@ define(["jquery",
                 footerView.render();
             },
 
-            showNewsfeed: function (){
-                console.log("a");
+            changeContent: function(view, argument) {
+                let contentView = view;
+                this.addSubView(contentView, "#content");
+                contentView.render(argument);
             },
 
-            showRegisterPage: function () {
-                console.log("b");
+            showSignUpPage: function () {
+                this.changeContent(new SignUpView());
             },
 
             showLoginPage: function () {
-                console.log("c");
+                this.changeContent(new LoginView());
+            },
+
+            showNewsfeed: function () {
+                this.changeContent(new NewsFeedView());
+            },
+
+            showSportNews: function () {
+                this.changeContent(new NewsAreaView(), "sport");
+            },
+
+            showWeatherNews: function () {
+                this.changeContent(new NewsAreaView(), "weather");
+            },
+
+            showPoliticNews: function () {
+                this.changeContent(new NewsAreaView(), "politic");
+            },
+
+            showCultureNews: function () {
+                this.changeContent(new NewsAreaView(), "culture");
+            },
+
+            showOtherNews: function () {
+                this.changeContent(new NewsAreaView(), "other");
             }
 
         });
