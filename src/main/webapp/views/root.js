@@ -84,12 +84,12 @@ define(["jquery",
             },
 
             showNewsAreaPage: function (event){
-                let newsAreaId = event.originalEvent.path[0].attributes[1].nodeValue;
+                let newsAreaId = event.originalEvent.path[0].attributes["area-id"].nodeValue;
                 this.changeContent(new NewsAreaView(), newsAreaId);
             },
 
             showArticlePage: function (event) {
-                let articleId = event.originalEvent.path[1].attributes[1].nodeValue;
+                let articleId = event.originalEvent.path[1].attributes["article-id"].nodeValue;
                 this.changeContent(new ArticleView(), articleId);
             }
 
