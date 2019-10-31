@@ -33,14 +33,10 @@ define(["jquery",
                 "click #headerLogo1p": "showNewsfeed",
                 "click #headerLogo2p": "showNewsfeed",
                 "click #headerHome": "showNewsfeed",
-                "click #headerSport": "showSportNews",
-                "click #headerWeather": "showWeatherNews",
-                "click #headerPolitic": "showPoliticNews",
-                "click #headerCulture": "showCultureNews",
-                "click #headerOther": "showOtherNews",
+                "click .newsAreaLink": function(event){this.showNewsAreaPage(event)},
                 "click #headerSignUp": "showSignUpPage",
                 "click #headerLogin": "showLoginPage",
-                "click .newsLink": "showArticlePage"
+                "click .newsLink": function (event) {this.showArticlePage(event);}
             },
 
             init: function () {
@@ -79,26 +75,6 @@ define(["jquery",
                 this.changeContent(new NewsFeedView());
             },
 
-            showSportNews: function () {
-                this.changeContent(new NewsAreaView(), "sport");
-            },
-
-            showWeatherNews: function () {
-                this.changeContent(new NewsAreaView(), "weather");
-            },
-
-            showPoliticNews: function () {
-                this.changeContent(new NewsAreaView(), "politic");
-            },
-
-            showCultureNews: function () {
-                this.changeContent(new NewsAreaView(), "culture");
-            },
-
-            showOtherNews: function () {
-                this.changeContent(new NewsAreaView(), "other");
-            },
-
             showSignUpPage: function () {
                 this.changeContent(new SignUpView());
             },
@@ -107,9 +83,14 @@ define(["jquery",
                 this.changeContent(new LoginView());
             },
 
-            //TODO get Article id from event element
-            showArticlePage: function () {
-                this.changeContent(new ArticleView(), "4");
+            showNewsAreaPage: function (event){
+                let newsAreaId = event.originalEvent.path[0].attributes[1].nodeValue;
+                this.changeContent(new NewsAreaView(), newsAreaId);
+            },
+
+            showArticlePage: function (event) {
+                let articleId = event.originalEvent.path[1].attributes[1].nodeValue;
+                this.changeContent(new ArticleView(), articleId);
             }
 
         });
